@@ -31,6 +31,7 @@ export default class Snake {
     this.maxLength = 1;
   }
 
+  // метод для движения змейки через границы поля
   _moveThroughBorder(field, cellSize) {
     if (this._x < 0) {
       this._x = field.width - cellSize;
@@ -45,6 +46,7 @@ export default class Snake {
     }
   }
 
+  // метод отрисовки змейки
   draw(field, cellSize, context, restart) {
     this._x += this._dx;
     this._y += this._dy;
@@ -56,10 +58,12 @@ export default class Snake {
       y: this._y,
     });
 
+    //проверка на то, чтобы змейка отрисовывалась не длиннее ее текущей длины
     if (this._body.length > this.maxLength) {
       this._body.pop();
     }
 
+    //непосредственно отрисовка
     this._body.forEach((el, i) => {
       context.beginPath();
       context.lineWidth = '1';
@@ -75,6 +79,7 @@ export default class Snake {
 
       this._eatApple(el);
 
+      //случай "крушения" змейки
       for (let j = i + 1; j < this._body.length; j++) {
         if (el.x === this._body[j].x && el.y === this._body[j].y) {
           restart();
@@ -83,6 +88,7 @@ export default class Snake {
     });
   }
 
+  // метод определения текущего направления движения
   _defineDirection(cellSize) {
     if (this._dx === 0 && this._dy === -cellSize) {
       this._direction = 'up';
@@ -95,6 +101,7 @@ export default class Snake {
     }
   }
 
+  // метод управления змейкой
   control(cellSize) {
     document.addEventListener('keydown', (evt) => {
       this._defineDirection(cellSize);
@@ -114,6 +121,7 @@ export default class Snake {
     });
   }
 
+  // сброс параметров змейки в начальное состояние
   reset(dx) {
     this._x = 0;
     this._y = 100;

@@ -13,10 +13,14 @@ import {
   pauseButton,
 } from '../utils/constants';
 
-let gameAnimationId = null;
+//переменная для запуска/остановки игрового цикла
+let gameAnimationId = null; 
 
+//экземпляр класса подсчета очков
 const score = new Score();
+//экземпляр класса яблока
 const apple = new Apple(200, 200, settings.cellSize);
+//экземпляр класса змейки
 const snake = new Snake(0, 100, settings.cellSize, 0, '#45a063', '#50C878', {
   eatApple: (el) => {
     if (el.x === apple.x && el.y === apple.y) {
@@ -30,19 +34,23 @@ const snake = new Snake(0, 100, settings.cellSize, 0, '#45a063', '#50C878', {
       );
     }
   },
-});
+}); 
 
-snake.control(settings.cellSize);
+//метод управления змейкой
+snake.control(settings.cellSize); 
 
+//слушатель кнопки рестарта
 restartButton.addEventListener('click', () => {
   restart();
 });
 
+//функция рестарта
 function restart() {
-  score.resetScore();
+  score.resetScore(); //сбрасываем очки
 
-  snake.reset(settings.cellSize);
+  snake.reset(settings.cellSize); //устанавливаем длину змейки в начальное состояние
 
+  //рисуем яблоко в рандомном месте поля
   apple.setRandomApplePosition(
     countOfCellsX,
     countOfCellsY,
@@ -51,6 +59,7 @@ function restart() {
   );
 }
 
+//рекурсивная функция игрового цикла
 function game() {
   gameAnimationId = requestAnimationFrame(game);
   if (++settings.step < settings.maxStep) {
@@ -66,6 +75,7 @@ function game() {
 
 game();
 
+//слушатель кнопки паузы игры
 pauseButton.addEventListener('click', () => {
   if (gameAnimationId !== null) {
     cancelAnimationFrame(gameAnimationId);
