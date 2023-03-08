@@ -22,4 +22,4 @@
 
 ## Скриншот
 
-![Иллюстрация к проекту](https://github.com/elenaLiubimova/snake-game/main/src/images/screenshot.png)
+![Иллюстрация к проекту](https://github.com/elenaLiubimova/snake-game/raw/main/src/images/screenshot.png)
