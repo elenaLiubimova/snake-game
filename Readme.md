@@ -16,6 +16,10 @@
 * типизацию (есть места, которые в IDE подчеркиваются как "but a better type may be inferred from usage", и в паре мест сама поставила any);
 * экран "Game over" при крушении.
 
-**gh-pages**
+## gh-pages
 
-* [Ссылка на деплой](https://github.com/elenaLiubimova/snake-game)
+[Ссылка на деплой](https://elenaliubimova.github.io/snake-game)
+
+## Скриншот
+
+![Иллюстрация к проекту](https://github.com/elenaLiubimova/snake-game/main/src/images/screenshot.png)
