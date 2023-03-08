@@ -11,7 +11,9 @@ export default class Apple {
   }
   
   draw(context, color) {
+    context.beginPath();
     context.fillStyle = color;
-    context.fillRect(this.x, this.y, this.size, this.size);
+    context.roundRect(this.x, this.y, this.size, this.size, [5]);
+    context.fill();
   }
 }

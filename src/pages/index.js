@@ -10,11 +10,14 @@ import {
   settings,
   countOfCellsX,
   countOfCellsY,
+  pauseButton
 } from '../utils/constants';
+
+let gameAnimationId = null;
 
 const score = new Score();
 const apple = new Apple(200, 200, settings.cellSize);
-const snake = new Snake(0, 100, settings.cellSize, 0, '#50C878', {
+const snake = new Snake(0, 100, settings.cellSize, 0, '#45a063', '#50C878', {
   eatApple: (el) => {
     if (el.x === apple.x && el.y === apple.y) {
       snake.maxLength++;
@@ -49,7 +52,7 @@ function restart() {
 }
 
 function game() {
-  requestAnimationFrame(game);
+  gameAnimationId = requestAnimationFrame(game);
   if (++settings.step < settings.maxStep) {
     return;
   }
@@ -62,3 +65,12 @@ function game() {
 }
 
 game();
+
+pauseButton.addEventListener('click', () => {
+  if (gameAnimationId !== null) {
+    cancelAnimationFrame(gameAnimationId);
+    gameAnimationId = null;
+  } else {
+    requestAnimationFrame(game);
+  }
+})

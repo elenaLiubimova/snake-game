@@ -1,9 +1,11 @@
 export default class Snake {
-  constructor(x, y, dx, dy, color, { eatApple }) {
+  constructor(x, y, dx, dy, headColor, color, { eatApple }) {
     this.x = x;
     this.y = y;
     this.dx = dx;
     this.dy = dy;
+    this.direction = 'right';
+    this.headColor = headColor;
     this.color = color;
     this._eatApple = eatApple;
     this.body = [];
@@ -40,8 +42,17 @@ export default class Snake {
     }
   
     this.body.forEach((el, i) => {
-      context.fillStyle = this.color;
-      context.fillRect(el.x, el.y, cellSize, cellSize);
+      context.beginPath();
+      context.lineWidth = "1";
+      context.strokeStyle = '#000';
+      if (i === 0) {
+        context.fillStyle = this.headColor;
+      } else {
+        context.fillStyle = this.color;
+      }
+      context.roundRect(el.x, el.y, cellSize, cellSize, [5]);
+      context.fill();
+      context.stroke();
   
       this._eatApple(el);
   
@@ -53,18 +64,31 @@ export default class Snake {
     });
   }
 
+  _defineDirection(cellSize) {
+    if (this.dx === 0 && this.dy === -cellSize) {
+      this.direction = 'up';
+    } else if (this.dx === -cellSize && this.dy === 0) {
+      this.direction = 'left';
+    } else if (this.dx === 0 && this.dy === cellSize) {
+      this.direction = 'down';
+    } else if (this.dx === cellSize && this.dy === 0) {
+      this.direction = 'right';
+    }
+  }
+
   control(cellSize) {
     document.addEventListener('keydown', (evt) => {
-      if (evt.key === 'ArrowUp') {
+      this._defineDirection(cellSize);
+      if (evt.key === 'ArrowUp' && this.direction !== 'down') {
         this.dx = 0;
         this.dy = -cellSize;
-      } else if (evt.key === 'ArrowLeft') {
+      } else if (evt.key === 'ArrowLeft' && this.direction !== 'right') {
         this.dx = -cellSize;
         this.dy = 0;
-      } else if (evt.key === 'ArrowDown') {
+      } else if (evt.key === 'ArrowDown' && this.direction !== 'up') {
         this.dx = 0;
         this.dy = cellSize;
-      } else if (evt.key === 'ArrowRight') {
+      } else if (evt.key === 'ArrowRight' && this.direction !== 'left') {
         this.dx = cellSize;
         this.dy = 0;
       }
