@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Змейка</title>
+  </head>
+  <body class="root">
+    <header class="header container">
+      <div class="score">
+        <img class="score__image" src="<%=require('./images/apple.svg')%>" alt="яблоко">
+        <span class="score__count">0</span>
+      </div>
+      <button class="restart"></button>
+    </header>
+    <main class="game">
+      <canvas class="game__field" width="400" height="400"></canvas>
+    </main>
+  </body>
+</html>

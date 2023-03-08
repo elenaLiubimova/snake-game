@@ -1,0 +1,6 @@
+@font-face {
+  font-family: 'Calculator';
+  src: url(./fonts/digital.woff) format('woff'),
+       url(./fonts/digital.woff2) format('woff2');
+  font-weight: 400;
+}
