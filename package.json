@@ -2,7 +2,7 @@
   "name": "snake-game",
   "version": "1.0.0",
   "description": "",
-  "main": "./pages/index.js",
+  "main": "./pages/index.ts",
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack serve"
@@ -28,6 +28,8 @@
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.7.3",
     "postcss-loader": "^7.0.2",
+    "ts-loader": "^9.4.2",
+    "typescript": "^4.9.5",
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.11.1"
   },

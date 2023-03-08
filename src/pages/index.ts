@@ -10,7 +10,7 @@ import {
   settings,
   countOfCellsX,
   countOfCellsY,
-  pauseButton
+  pauseButton,
 } from '../utils/constants';
 
 let gameAnimationId = null;
@@ -73,4 +73,4 @@ pauseButton.addEventListener('click', () => {
   } else {
     requestAnimationFrame(game);
   }
-})
+});

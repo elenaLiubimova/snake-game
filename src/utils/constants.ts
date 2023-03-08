@@ -1,4 +1,6 @@
-export const gameField = document.querySelector('.game__field');
+export const gameField = document.querySelector(
+  '.game__field'
+) as HTMLCanvasElement;
 export const context = gameField.getContext('2d');
 export const restartButton = document.querySelector('.restart');
 
