@@ -1,3 +1,5 @@
+import { BodyElement } from "../types/types";
+
 export default class Snake {
   _x: number;
   _y: number;
@@ -6,8 +8,8 @@ export default class Snake {
   _direction: string;
   _headColor: string;
   _color: string;
-  _eatApple: any;
-  _body: any;
+  _eatApple: (el: BodyElement) => void;
+  _body: BodyElement[];
   maxLength: number;
 
   constructor(
@@ -32,7 +34,7 @@ export default class Snake {
   }
 
   // метод для движения змейки через границы поля
-  _moveThroughBorder(field, cellSize) {
+  _moveThroughBorder(field: HTMLCanvasElement, cellSize: number) {
     if (this._x < 0) {
       this._x = field.width - cellSize;
     } else if (this._x >= field.width) {
@@ -47,7 +49,7 @@ export default class Snake {
   }
 
   // метод отрисовки змейки
-  draw(field, cellSize, context, restart) {
+  draw(field: HTMLCanvasElement, cellSize: number, context: CanvasRenderingContext2D, restart: () => void) {
     this._x += this._dx;
     this._y += this._dy;
 
@@ -66,7 +68,7 @@ export default class Snake {
     //непосредственно отрисовка
     this._body.forEach((el, i) => {
       context.beginPath();
-      context.lineWidth = '1';
+      context.lineWidth = 1;
       context.strokeStyle = '#000';
       if (i === 0) {
         context.fillStyle = this._headColor;
@@ -89,7 +91,7 @@ export default class Snake {
   }
 
   // метод определения текущего направления движения
-  _defineDirection(cellSize) {
+  _defineDirection(cellSize: number) {
     if (this._dx === 0 && this._dy === -cellSize) {
       this._direction = 'up';
     } else if (this._dx === -cellSize && this._dy === 0) {
@@ -102,7 +104,7 @@ export default class Snake {
   }
 
   // метод управления змейкой
-  control(cellSize) {
+  control(cellSize: number) {
     document.addEventListener('keydown', (evt) => {
       this._defineDirection(cellSize);
       if (evt.key === 'ArrowUp' && this._direction !== 'down') {
@@ -122,7 +124,7 @@ export default class Snake {
   }
 
   // сброс параметров змейки в начальное состояние
-  reset(dx) {
+  reset(dx: number) {
     this._x = 0;
     this._y = 100;
     this._body = [];

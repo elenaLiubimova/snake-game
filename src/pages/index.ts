@@ -12,6 +12,7 @@ import {
   countOfCellsY,
   pauseButton,
 } from '../utils/constants';
+import { BodyElement } from '../types/types';
 
 //переменная для запуска/остановки игрового цикла
 let gameAnimationId = null; 
@@ -22,7 +23,7 @@ const score = new Score();
 const apple = new Apple(200, 200, settings.cellSize);
 //экземпляр класса змейки
 const snake = new Snake(0, 100, settings.cellSize, 0, '#45a063', '#50C878', {
-  eatApple: (el) => {
+  eatApple: (el: BodyElement) => {
     if (el.x === apple.x && el.y === apple.y) {
       snake.maxLength++;
       score.plusScore();
