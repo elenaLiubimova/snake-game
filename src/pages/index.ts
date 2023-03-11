@@ -38,7 +38,10 @@ const snake = new Snake(0, 100, settings.cellSize, 0, '#45a063', '#50C878', {
 }); 
 
 //метод управления змейкой
-snake.control(settings.cellSize); 
+snake.control('keydown', settings.cellSize);
+ 
+//метод управления змейкой кнопками
+snake.control('click', settings.cellSize); 
 
 //слушатель кнопки рестарта
 restartButton.addEventListener('click', () => {

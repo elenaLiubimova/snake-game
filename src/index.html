@@ -9,17 +9,27 @@
   </head>
   <body class="root">
     <header class="header container">
-      <div class="score">
-        <img class="score__image" src="<%=require('./images/apple.svg')%>" alt="яблоко">
-        <span class="score__count">0</span>
-      </div>
-      <div class="game-controls">
-        <button class="button pause"></button>
-        <button class="button restart"></button>
-      </div>
+      <img class="header__logo" src="<%=require('./images/snake.svg')%>" alt="Змейка">
+      <h1 class="header__title">Змейка</р>
     </header>
     <main class="game">
+      <section class="game__panel container">
+        <div class="score">
+          <img class="score__image" src="<%=require('./images/apple.svg')%>" alt="яблоко">
+          <span class="score__count">0</span>
+        </div>
+        <div class="game-controls">
+          <button class="button pause"></button>
+          <button class="button restart"></button>
+        </div>
+      </section>
       <canvas class="game__field" width="400" height="400"></canvas>
+      <section class="direction-controls">
+        <button class="direction-button direction-button_type_up"></button>
+        <button class="direction-button direction-button_type_left"></button>
+        <button class="direction-button direction-button_type_right"></button>
+        <button class="direction-button direction-button_type_down"></button>
+      </section>
     </main>
   </body>
 </html>

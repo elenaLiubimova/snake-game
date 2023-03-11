@@ -1,4 +1,5 @@
 import { BodyElement } from "../types/types";
+import { buttonDown, buttonLeft, buttonRight, buttonUp } from "../utils/constants";
 
 export default class Snake {
   _x: number;
@@ -104,19 +105,19 @@ export default class Snake {
   }
 
   // метод управления змейкой
-  control(cellSize: number) {
-    document.addEventListener('keydown', (evt) => {
+  control(evtType, cellSize: number) {
+    document.addEventListener(evtType, (evt) => {
       this._defineDirection(cellSize);
-      if (evt.key === 'ArrowUp' && this._direction !== 'down') {
+      if ((evt.key === 'ArrowUp' || evt.target === buttonUp) && this._direction !== 'down') {
         this._dx = 0;
         this._dy = -cellSize;
-      } else if (evt.key === 'ArrowLeft' && this._direction !== 'right') {
+      } else if ((evt.key === 'ArrowLeft' || evt.target === buttonLeft) && this._direction !== 'right') {
         this._dx = -cellSize;
         this._dy = 0;
-      } else if (evt.key === 'ArrowDown' && this._direction !== 'up') {
+      } else if ((evt.key === 'ArrowDown'  || evt.target === buttonDown) && this._direction !== 'up') {
         this._dx = 0;
         this._dy = cellSize;
-      } else if (evt.key === 'ArrowRight' && this._direction !== 'left') {
+      } else if ((evt.key === 'ArrowRight' || evt.target === buttonRight) && this._direction !== 'left') {
         this._dx = cellSize;
         this._dy = 0;
       }

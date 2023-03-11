@@ -14,3 +14,8 @@ export const countOfCellsX = gameField.width / settings.cellSize;
 export const countOfCellsY = gameField.width / settings.cellSize;
 
 export const pauseButton = document.querySelector('.pause');
+
+export const buttonUp = document.querySelector('.direction-button_type_up');
+export const buttonLeft = document.querySelector('.direction-button_type_left');
+export const buttonRight = document.querySelector('.direction-button_type_right');
+export const buttonDown = document.querySelector('.direction-button_type_down');

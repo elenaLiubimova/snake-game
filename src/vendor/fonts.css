@@ -4,3 +4,10 @@
        url(./fonts/digital.woff2) format('woff2');
   font-weight: 400;
 }
+
+@font-face {
+  font-family: 'Fowler';
+  src: url(./fonts/fowler.woff) format('woff'),
+       url(./fonts/fowler.woff2) format('woff2');
+  font-weight: 400;
+}

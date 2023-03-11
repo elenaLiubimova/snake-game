@@ -3,11 +3,15 @@
 .root {
   height: 100vh;
   margin: 0;
-  background: rgb(195, 243, 172);
+  background-color: rgba(195, 243, 172, 1);
+  background-image: url(../images/background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right bottom;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 
   font-family: 'Calculator', Arial, sans-serif;
   font-weight: 400;
@@ -22,24 +26,35 @@
 
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  gap: 30px;
-  padding-bottom: 20px;
+  gap: 15px;
+  padding: 20px 0 10px;
+  font-family: 'Fowler', Arial, sans-serif;
 }
 
 .header__title {
   margin: 0;
   
-  font-size: 20px;
+  font-size: 72px;
+  color: #41634c;
   line-height: 1;
   font-weight: 400;
   text-transform: uppercase;
+  line-height: 1;
 }
 
 .header__logo {
-  width: 50px;
-  height: 60px;
+  width: 70px;
+  height: 80px;
+}
+
+.game__panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  padding-bottom: 20px;
 }
 
 .score {
@@ -59,6 +74,12 @@
   background-size: contain;
 
   cursor: pointer;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .game-controls {
@@ -84,4 +105,46 @@
   box-sizing: border-box;
   border: 5px solid #50C878;
   background-color: rgb(196, 240, 240);
+}
+
+.direction-controls {
+  display: grid;
+  grid-template-areas: 
+  ". up ."
+  "left . right"
+  ". down .";
+  width: 50%;
+  padding-top: 10px;
+}
+
+.direction-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #50C878;
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  cursor: pointer;
+}
+
+.direction-button_type_up {
+  grid-area: up;
+  background-image: url(../images/up.svg);
+}
+
+.direction-button_type_left {
+  grid-area: left;
+  background-image: url(../images/left.svg);
+}
+
+.direction-button_type_right {
+  grid-area: right;
+  background-image: url(../images/right.svg);
+}
+
+.direction-button_type_down {
+  grid-area: down;
+  background-image: url(../images/down.svg);
 }
