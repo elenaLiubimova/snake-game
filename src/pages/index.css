@@ -13,9 +13,9 @@
   align-items: center;
   justify-content: flex-start;
 
-  font-family: 'Calculator', Arial, sans-serif;
+  font-family: Arial, sans-serif;
   font-weight: 400;
-  font-size: 56px;
+  font-size: 14px;
   line-height: 1.2;
 }
 
@@ -29,13 +29,13 @@
   justify-content: flex-start;
   align-items: center;
   gap: 15px;
-  padding: 20px 0 10px;
-  font-family: 'Fowler', Arial, sans-serif;
+  padding: 2vh 0 1vh;
 }
 
 .header__title {
   margin: 0;
   
+  font-family: 'Fowler', Arial, sans-serif;
   font-size: 72px;
   color: #41634c;
   line-height: 1;
@@ -45,8 +45,8 @@
 }
 
 .header__logo {
-  width: 70px;
-  height: 80px;
+  width: 9vh;
+  height: 8vh;
 }
 
 .game__panel {
@@ -54,7 +54,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 30px;
-  padding-bottom: 20px;
+  padding-bottom: 2vh;
 }
 
 .score {
@@ -63,13 +63,18 @@
   gap: 10px;
 }
 
+.score__count {
+  font-family: 'Calculator', Arial, sans-serif;
+  font-size: 6vh;
+}
+
 .button {
   border: none;
   outline: none;
   background-color: inherit;
   padding: 0;
-  width: 50px;
-  height: 50px;
+  width: 6vh;
+  height: 6vh;
   background-repeat: no-repeat;
   background-size: contain;
 
@@ -97,11 +102,13 @@
 }
 
 .score__image {
-  width: 50px;
-  height: 60px;
+  width: 6vh;
+  height: 6vh;
 }
 
 .game__field {
+  width: 50vh;
+  height: 50vh;
   box-sizing: border-box;
   border: 5px solid #50C878;
   background-color: rgb(196, 240, 240);
@@ -113,14 +120,15 @@
   ". up ."
   "left . right"
   ". down .";
+  height: 20vh;
   width: 50%;
-  padding-top: 10px;
+  padding-top: 3vh;
 }
 
 .direction-button {
-  width: 50px;
-  height: 50px;
+  height: 6vh;
   border-radius: 10px;
+  justify-self: stretch;
   background-color: #50C878;
   background-size: 80%;
   background-position: center;

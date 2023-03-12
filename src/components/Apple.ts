@@ -22,7 +22,7 @@ export default class Apple {
   draw(context: CanvasRenderingContext2D, color: string) {
     context.beginPath();
     context.fillStyle = color;
-    context.roundRect(this.x, this.y, this._size, this._size, [5]);
+    context.arc(this.x + 0.5 * this._size, this.y + 0.5 * this._size, 0.5 * this._size, 0, 2 * Math.PI);
     context.fill();
   }
 }
